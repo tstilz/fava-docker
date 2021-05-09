@@ -40,10 +40,7 @@ RUN find ${PYTHON_DIR} -name __pycache__ -exec rm -rf -v {} +
 
 # Note: this is python3.5, which barely meet the requirement of beancount. We
 # will need to update to newer version once it's supported.
-
-#FROM gcr.io/distroless/python3
-
-FROM fnndsc/ubuntu-python3
+FROM gcr.io/distroless/python3
 ARG PYTHON_DIR
 COPY --from=build_env ${PYTHON_DIR} ${PYTHON_DIR}
 COPY --from=build_env /usr/local/bin/fava /usr/local/bin/fava
